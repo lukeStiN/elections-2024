@@ -19,3 +19,7 @@ L'application est disponible en ligne ici : [elections-euro-2024](https://electi
 - *utils.py* : Module contenant les fonctions utilitaires pour les visualisations et le traitement des données.
 - *config.json* : Fichier de configuration contenant les paramètres de l'application.
 - *data/* : Répertoire contenant les données des élections.
+
+---
+
+[![Site](https://www.luc-estienne.com/web/image/website/1/logo)](https://www.luc-estienne.com/ "Luc Estienne")
