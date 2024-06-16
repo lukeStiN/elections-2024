@@ -1,5 +1,5 @@
 
 # Luc ESTIENNE
-*Data Analyst*
+:rainbow[Data Analyst]
 
 [![Streamlit App](https://www.luc-estienne.com/web/image/website/1/logo)](https://www.luc-estienne.com/ "Luc Estienne")
