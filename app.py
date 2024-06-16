@@ -51,7 +51,7 @@ def view_informations():
 
     for i, info in enumerate(['info-source', 'info-vocab', 'info-formules', 'creator']) :
         with tabs[i] :
-            with open(f'{info}.md', 'r', encoding='utf-8') as infos :
+            with open(f'infos/{info}.md', 'r', encoding='utf-8') as infos :
                 st.markdown(infos.read())
 
 colname = []
@@ -62,17 +62,11 @@ global_map = main_columns_1.empty()
 # REGIONS
 with global_map.container() :    
     # map
-    "## France"
+    "## France métropolitaine"
     buttons_1, buttons_2 = st.columns(2)
 
     event = map_chart(general_regions(), 'regions-version-simplifiee', 'REG', *colname, 
                       on_select=lambda : selection(1))
-
-    # retour
-    # _c1.button('Retour', disabled=True, key='retour_reg', use_container_width=True)
-    # Donnees
-    # with _c2.popover('Données', use_container_width=True) :
-    #     st.dataframe(general_regions())
 
 # DEPARTEMENTS
 if event['selection']['point_selection'] and st.session_state.step >= 1:
@@ -150,8 +144,6 @@ with main_columns_3 :
     
     bar_chart(
         _data, 'Libellé de la liste',
-        # 'Nom', 'Voix', 
-        # color="Liste" if _principales else "", 
         _text=_principales, 
         height=500 if _principales else 800, width=450
     )
