@@ -30,10 +30,11 @@ def selection(v : int) :
     """ Definit l'etape """
     st.session_state.step = v
 
-@st.experimental_dialog("Données")
+@st.experimental_dialog("Données", width='large')
 def view_data(*dataframes):
+    """ Affiche les données """
     tabs = st.tabs([f'Tableau {i+1}' for i in range(len(dataframes))])
-    
+
     for i, df in enumerate(dataframes) :
         with tabs[i] :
             st.dataframe(df, hide_index=True)
@@ -42,6 +43,16 @@ def view_data(*dataframes):
                 data=df.to_csv().encode("utf-8"),
                 file_name=f"data-{i}.csv", mime="text/csv",
             )
+
+@st.experimental_dialog("Informations", width='large')
+def view_informations():
+    """ Affiche les données """
+    tabs = st.tabs(['Sources', 'Vocabulaire', 'Formules', 'Créateur'])
+
+    for i, info in enumerate(['info-source', 'info-vocab', 'info-formules', 'creator']) :
+        with tabs[i] :
+            with open(f'{info}.md', 'r', encoding='utf-8') as infos :
+                st.markdown(infos.read())
 
 colname = []
 
@@ -52,12 +63,13 @@ global_map = main_columns_1.empty()
 with global_map.container() :    
     # map
     "## France"
+    buttons_1, buttons_2 = st.columns(2)
+
     event = map_chart(general_regions(), 'regions-version-simplifiee', 'REG', *colname, 
                       on_select=lambda : selection(1))
 
-    _c1, _c2 = st.columns(2)
     # retour
-    _c1.button('Retour', disabled=True, key='retour_reg', use_container_width=True)
+    # _c1.button('Retour', disabled=True, key='retour_reg', use_container_width=True)
     # Donnees
     # with _c2.popover('Données', use_container_width=True) :
     #     st.dataframe(general_regions())
@@ -73,12 +85,12 @@ if event['selection']['point_selection'] and st.session_state.step >= 1:
         # map
         title = st.empty()
         title.markdown(f"## {s_region}")
+        buttons_1, buttons_2 = st.columns(2)
         event = map_chart(general_departement(), 'departements-version-simplifiee', 'DEP', *colname, 'REG',
                 _filter={"filter":f"datum.REG == {s_region_code}"}, object_key='dep', on_select=lambda : selection(2))
 
-        _c1, _c2 = st.columns(2)
         # retour
-        if _c1.button('Retour', help='Retourner au découpage régional', use_container_width=True) : 
+        if st.button('Retour', help='Retourner au découpage régional', use_container_width=False) : 
             selection(0)
             st.session_state.selection_view = [None, None] 
             st.rerun()
@@ -136,15 +148,16 @@ with main_columns_3 :
         if 'DEP' in _data.columns : _data = _data.drop('DEP', axis=1)
         _data.loc[len(_data)] = [_value, 'Autre', 'Autre', 'Autre']
     
-    # st.dataframe(_data)
     bar_chart(
-        _data, 
-        'Libellé de la liste',
+        _data, 'Libellé de la liste',
         # 'Nom', 'Voix', 
         # color="Liste" if _principales else "", 
         _text=_principales, 
         height=500 if _principales else 800, width=450
     )
     
-if _c2.button('Données', use_container_width=True) : 
-    view_data(data_general, data_candidat)
+if buttons_1.button('Informations', use_container_width=True) : 
+    view_informations()
+
+if buttons_2.button('Données', use_container_width=True) : 
+    view_data(data_general, data_candidat, candidat_list().drop('Liste', axis=1))
