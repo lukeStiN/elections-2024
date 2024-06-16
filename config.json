@@ -1,0 +1,146 @@
+{
+    "font": "\"Source Sans Pro\", sans-serif",
+    "background": "#ffffff",
+    "fieldTitle": "verbal",
+    "autosize": {"type": "fit", "contains": "padding"},
+    "title": {
+      "align": "left",
+      "anchor": "start",
+      "color": "#31333F",
+      "titleFontStyle": "normal",
+      "fontWeight": 600,
+      "fontSize": 16,
+      "orient": "top",
+      "offset": 26
+    },
+    "header": {
+      "titleFontWeight": 400,
+      "titleFontSize": 16,
+      "titleColor": "#808495",
+      "titleFontStyle": "normal",
+      "labelFontSize": 12,
+      "labelFontWeight": 400,
+      "labelColor": "#808495",
+      "labelFontStyle": "normal"
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "labelFontWeight": 400,
+      "labelColor": "#808495",
+      "labelFontStyle": "normal",
+      "titleFontWeight": 400,
+      "titleFontSize": 14,
+      "titleColor": "#808495",
+      "titleFontStyle": "normal",
+      "ticks": false,
+      "gridColor": "#e6eaf1",
+      "domain": false,
+      "domainWidth": 1,
+      "domainColor": "#e6eaf1",
+      "labelFlush": true,
+      "labelFlushOffset": 1,
+      "labelBound": false,
+      "labelLimit": 100,
+      "titlePadding": 16,
+      "labelPadding": 16,
+      "labelSeparation": 4,
+      "labelOverlap": true
+    },
+    "legend": {
+      "labelFontSize": 14,
+      "labelFontWeight": 400,
+      "labelColor": "#808495",
+      "titleFontSize": 14,
+      "titleFontWeight": 400,
+      "titleFontStyle": "normal",
+      "titleColor": "#808495",
+      "titlePadding": 5,
+      "labelPadding": 16,
+      "columnPadding": 8,
+      "rowPadding": 4,
+      "padding": 7,
+      "symbolStrokeWidth": 4
+    },
+    "range": {
+      "category": [
+        "#2e95d3",
+        "#00a67d",
+        "#e9950c",
+        "#df3079",
+        "#ff6347",
+        "#925ad9",
+        "#86a2da",
+        "#f969a4"
+      ],
+      "diverging": [
+        "#7d353b",
+        "#bd4043",
+        "#ff4b4b",
+        "#ff8c8c",
+        "#ffc7c7",
+        "#a6dcff",
+        "#60b4ff",
+        "#1c83e1",
+        "#0054a3",
+        "#004280"
+      ],
+      "ramp": [
+        "#e4f5ff",
+        "#c7ebff",
+        "#a6dcff",
+        "#83c9ff",
+        "#60b4ff",
+        "#3d9df3",
+        "#1c83e1",
+        "#0068c9",
+        "#0054a3",
+        "#004280"
+      ],
+      "heatmap": [
+        "#e4f5ff",
+        "#c7ebff",
+        "#a6dcff",
+        "#83c9ff",
+        "#60b4ff",
+        "#3d9df3",
+        "#1c83e1",
+        "#0068c9",
+        "#0054a3",
+        "#004280"
+      ]
+    },
+    "view": {
+      "columns": 1,
+      "strokeWidth": 0,
+      "stroke": "transparent",
+      "continuousHeight": 350,
+      "continuousWidth": 400,
+      "discreteHeight": 350,
+      "discreteWidth": {"step": 20}
+    },
+    "concat": {"columns": 1},
+    "facet": {"columns": 1},
+    "mark": {"tooltip": true, "color": "#2e95d3"},
+    "arc": {
+      "cornerRadius": 15,
+      "stroke":null,
+      "innerRadius": 100, "outerRadius":120
+    },
+    "line": {"interpolate": "monotone"},
+    "bar": {
+      "binSpacing": 4,
+      "discreteBandSize": {"band": 0.85},
+      "cornerRadiusEnd": 12
+    },
+    "area": {
+      "line": {"color": "#2e95d3"}, "interpolate":"monotone"
+    },
+    "point": {
+      "fill" : "#2e95d3", "stroke":"transparent", "fillOpacity":1, "size":80
+    },
+    "axisYQuantitative": {"format": ".3~s"},
+    "axisDiscrete": {"grid": false},
+    "axisXPoint": {"grid": false},
+    "axisTemporal": {"grid": false},
+    "axisXBand": {"grid": false}
+  }
